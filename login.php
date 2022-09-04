@@ -8,9 +8,11 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ){
    
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $ruc = $_POST['ruc'];
 
-        $sql="SELECT u.name, u.id, r.id, r.name AS user_type, u.warehouse_id AS shop_id, u.warehouse_id AS owner_id,u.password FROM users u INNER JOIN roles r ON r.id = role_id WHERE u.email ='".$email."'";
+        $sql="SELECT u.name, u.id, r.id, r.name AS user_type, u.warehouse_id AS shop_id, u.warehouse_id AS owner_id,u.password FROM `$ruc`.users u INNER JOIN `$ruc`.roles r ON r.id = role_id WHERE u.email ='".$email."'";
          
+      
         $result =  mysqli_query($con,$sql);
         $num_rows =mysqli_num_rows($result);
          
